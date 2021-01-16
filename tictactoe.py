@@ -1,8 +1,8 @@
-board = [["1", "2", "3"], ["4", "5", "6"], ["7", "8", "9"]]
+board = [ [ "1", "2", "3" ], [ "4", "5", "6" ], [ "7", "8", "9" ] ]
 
 for i in range (3):
   print(board[i])
-  
+
 charecters = ["X", "O"]
 turn = 0
 play_charecter = charecters[turn%2]
@@ -29,7 +29,7 @@ def determinespot(place):
         return [2, 1]
       if number == 9:
         return [2, 2]
-        
+
 def check(p1, p2, p3, play_charecter):
   if board[p1[0]][p1[1]] != play_charecter:
     return False
@@ -38,7 +38,7 @@ def check(p1, p2, p3, play_charecter):
   if board[p3[0]][p3[1]] != play_charecter:
     return False
   return True
-  
+
 
 while True:
   play_charecter = charecters[turn%2]
@@ -56,13 +56,13 @@ while True:
   for i in range(3):
     print(board[i])
   turn += 1
-  
+
   #row
   game_still_running = check([0, 0], [0, 1], [0, 2], play_charecter)
   if game_still_running == True:
     print(play_charecter + " won!")
     break
-    
+
   if game_still_running == False:
     game_still_running = check([1, 0], [1, 1], [1, 2], play_charecter)
   else:
@@ -73,7 +73,7 @@ while True:
   else:
     print(play_charecter + " won!")
     break
-  
+
   #column
   if game_still_running == False:
     game_still_running = check([0, 0], [1, 0], [2, 0], play_charecter)
@@ -90,7 +90,7 @@ while True:
   else:
     print(play_charecter + " won!")
     break
-  
+
   # diagonal
   if game_still_running == False:
     game_still_running = check([0, 0], [1, 1], [2, 2], play_charecter)
@@ -102,4 +102,3 @@ while True:
   else:
     print(play_charecter + " won!")
     break
-
